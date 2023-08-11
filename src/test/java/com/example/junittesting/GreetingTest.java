@@ -2,6 +2,7 @@ package com.example.junittesting;
 
 import org.junit.jupiter.api.*;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GreetingTest {
@@ -29,6 +30,11 @@ class GreetingTest {
     @Test
     void testHelloWorld() {
         System.out.println(greeting.helloWorld("Mathew"));
+        assertAll("assertion",
+                ()->assertAll("inner assert",
+                        ()-> assertEquals("EEE","EEE")),
+                ()->assertEquals("DDD","DDD")
+        );
     }
 
     @AfterEach
